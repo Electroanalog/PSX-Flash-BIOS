@@ -48,12 +48,14 @@ This is where the **PSX Flash BIOS** adapters come in. By replacing the stock RO
 
 ## Installation Notes
 
-- Recommended adapter PCB material is **Flex** or **FR4-Standard** with a thickness of **0.8mm or less**, to ensure low-profile installation and proper clearance on the PlayStation mainboard.
-- The original **SOP32 or SOP40 Mask ROM must be desoldered using a hot air rework station**. This tool is essential for safe removal without damaging PCB pads or nearby components.
-- Place EEPROM with correct orientation matching the adapter silkscreen.
+- Recommended adapter PCB material is **Flex** or **FR4-Standard** with a thickness of **0.8mm or less**, to ensure low-profile installation and proper clearance on the PlayStation mainboard. 
+- When using FR-4 PCBs, **castellated holes** may be required for edge-aligned soldering to the mainboard, which can increase manufacturing cost. In contrast, **flex PCBs with ENIG finish** are thinner, mechanically compliant, and typically more affordable for low-profile installations, eliminating the need for castellations while simplifying assembly.
+- The original **SOP32 or SOP40 Mask ROM must be desoldered from the PS1 mainboard using a hot air rework station**. This tool is essential for safe removal without damaging PCB pads or nearby components.  
+- Place the EEPROM with correct orientation, matching the silkscreen markings on the **PSX Flash BIOS 40** or **PSX Flash BIOS 32** adapter. Carefully ensure that **all pins are precisely aligned with the PCB pads** before soldering.  
 - Fine pitch soldering skills are essential.
-- A **10 kΩ 0402 resistor** is used to pull the **WE** (Write Enable) pin high, putting the EEPROM in read-only mode. If preferred, a solder bridge can be used in place of the resistor.
-- Adapter boards have been tested and verified on real hardware.
+- A **PCB inspection scope** is highly recommended to objectively verify solder quality on each IC pin, especially for fine-pitch packages like TSOP32.
+- A **10 kΩ 0402 resistor** is used to pull the **WE** (Write Enable) pin high, putting the EEPROM in read-only mode. If preferred, a solder bridge can be used in place of the resistor.  
+- Adapter boards have been tested and verified on real hardware, including SCPH-1000, SCPH-1001, and SCPH-7501 consoles.
 
 ---
 
@@ -87,15 +89,14 @@ Use a compatible EEPROM programmer (e.g., **TL866II Plus**, **T48**) with one of
   Low-cost option. Requires soldering the EEPROM for each programming cycle.
 
 - **CNV-TSOP-EP1M32 (ZIF, “Pin 9 to 1”) adapter**  
-  Tool-free flashing with a Zero Insertion Force socket — no soldering required.
+  Tool-free flashing with a Zero Insertion Force socket. No soldering required.
 
-These adapters allow convenient programming of SST39VF040 EEPROMs used with the PSX BIOS replacement adapters.
-Or use any other programmer capable of writing to this IC in their respective package.
+These adapters allow for straightforward flashing of SST39VF040 EEPROMs used with PSX Flash BIOS PCBs. Other programmers compatible with this IC and its footprint may also be used.  
 
 <img src="img/t48-tsop32.jpg" alt="CNV-TSOP-EP1M32" width="300">
 
 > [!NOTE]
-> No byte-swap is required, as PS1 BIOS images are natively stored in little-endian format.
+> When flashing the EEPROM, no byte-swap is needed, as PS1 BIOS dumps use little-endian encoding as their native format.  
 
 ---
 
