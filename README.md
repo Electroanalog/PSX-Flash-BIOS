@@ -2,23 +2,22 @@
 
 [![License: CERN-OHL-S-2.0](https://img.shields.io/badge/License-CERN--OHL--S--2.0-lightgrey.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/Electroanalog/PSX-Flash-BIOS)](../../releases)
-[![Board Compatibility](https://img.shields.io/badge/Boards-32%20%26%2040%20Pin%20BIOS-green)]()
+[![Board Compatibility](https://img.shields.io/badge/Boards-40%20%26%2032%20Pin%20BIOS-yellow)](../../releases)
+[![PCB](https://img.shields.io/badge/PCB-2--layers-yellowgreen)](../../releases)
 [![Tested on Hardware](https://img.shields.io/badge/Tested-PlayStation-success)]()
 
-**PSX Flash BIOS** provides low-profile PCB adapter layouts for replacing the original PlayStation 1 BIOS ROM (IC102) with a 4Mbit SST39VF040 EEPROM, pre-flashed with a Game ID-enabled BIOS patch from the [jdfr228/PS1-Disc-Based-Game-ID](https://github.com/jdfr228/PS1-Disc-Based-Game-ID) project.  
+**PSX Flash BIOS** provides low-profile PCB adapter layouts for replacing the BIOS ROM (IC102) in original PlayStation (PS1) consoles with a 4 Mbit SST39VF040 EEPROM, pre-flashed with a Game ID-enabled BIOS patch from the [jdfr228/PS1-Disc-Based-Game-ID](https://github.com/jdfr228/PS1-Disc-Based-Game-ID) project.  
 
 ---
 
 ## Table of Contents
 
 - [Supported Mainboards](#supported-mainboards)
-- [Installation Notes](#installation-notes)
-- [Adapter Layouts](#adapter-layouts)
 - [Programming Notes](#programming-notes)
-- [Flashing EEPROM](#flashing-eeprom-adapters-and-programmers)  
+- [Flashing EEPROM](#flashing-eeprom-adapters-and-programmers)
+- [PSX Flash BIOS Layouts](#psx-flash-bios-layouts)
+- [Installation Notes](#installation-notes)
 - [Gallery](#gallery)
-- [License](#license)
-- [Credits](#credits)
 
 ---
 
@@ -33,9 +32,11 @@ Installing a BIOS patched with Game ID support offers significant advantages whe
 - Applying per-game settings  
 - Enhancing HDMI mods and controller mappings based on game context
 
-When using a **PSIO** loader, Game ID functionality is provided dynamically via real-time patching. However, for games booted directly from **CD media**, this functionality depends entirely on having a BIOS that includes the Game ID patch. Without it, compatible accessories will not detect any ID signal.
+When using a **PSIO** loader, Game ID functionality is provided dynamically via real-time patching. However, for games booted directly from **CD media**, this functionality requires a BIOS patched with Game ID support. Without it, compatible accessories will not detect any ID signal.
 
-This is where the **PSX Flash BIOS** adapters come in. By replacing the stock ROM with a **Game ID-patched BIOS** flashed onto an SST39VF040, even disc-based games on early consoles (with 40-pin BIOS) gain full compatibility with Game ID-aware hardware. No loader, exploit, or special startup process is required.
+This is where the **PSX Flash BIOS** adapters come in. By replacing the stock ROM with a patched BIOS flashed onto an SST39VF040, even disc-based games on early consoles (with 40-pin BIOS) gain full compatibility with Game ID-aware hardware. No loader, exploit, or special startup process is required.  
+
+---
 
 ## Supported Mainboards
 
@@ -46,33 +47,11 @@ This is where the **PSX Flash BIOS** adapters come in. By replacing the stock RO
 
 ---
 
-## Installation Notes
-
-- Recommended adapter PCB material is **Flex** or **FR4-Standard** with a thickness of **0.8mm or less**, to ensure low-profile installation and proper clearance on the PlayStation mainboard.
-- The original **SOP32 or SOP40 Mask ROM must be desoldered using a hot air rework station**. This tool is essential for safe removal without damaging PCB pads or nearby components.
-- Place EEPROM with correct orientation matching the adapter silkscreen.
-- Fine pitch soldering skills are essential.
-- A **10 kΩ 0402 resistor** is used to pull the **WE** (Write Enable) pin high, putting the EEPROM in read-only mode. If preferred, a solder bridge can be used in place of the resistor.
-- Adapter boards have been tested and verified on real hardware.
-
----
-
-## Adapter Layouts
-
-This repository provides ready-to-manufacture Gerber files for two adapter versions:
-
-- **40-pin version**: For early revisions such as **PU-7** and **PU-8 (early)** with a 40-pin BIOS Mask ROM
-- **32-pin version**: For mainboards from **PU-8 (late)** onward that use a 32-pin BIOS Mask ROM  
-
-> 💡 Adapters are designed for thin or flex PCBs (≤ 0.8 mm) to ensure low-profile installation without mechanical interference.
-
----
-
 ## Programming Notes
 
-These adapters are designed for use with **SST39VF040** (4Mbit) EEPROMs.
+**PSX Flash BIOS 40** and **PSX Flash BIOS 32** are designed for use with the SST39VF040 (4 Mbit) EEPROM.  
 
-- EEPROM must be pre-flashed with a **Game ID-patched PS1 BIOS image**  
+- EEPROM IC must be pre-flashed with a **Game ID-patched PS1 BIOS image**  
   ([see jdfr228/PS1-Disc-Based-Game-ID](https://github.com/jdfr228/PS1-Disc-Based-Game-ID))
 - Use a compatible EEPROM programmer such as the T48 (TL866-3G).
 
@@ -81,29 +60,61 @@ These adapters are designed for use with **SST39VF040** (4Mbit) EEPROMs.
 ## Flashing EEPROM (Adapters and Programmers)  
 
 **Flashing:**  
-Use a compatible EEPROM programmer (e.g., **TL866II Plus**, **T48**) with one of the following TSOP32 adapters for SST39VF040:
+Use a TSOP32 adapter compatible with the SST39VF040 in combination with a programmer such as the TL866II Plus or T48:  
 
 - **Standard TSOP32 → DIP32 adapter**  
   Low-cost option. Requires soldering the EEPROM for each programming cycle.
 
 - **CNV-TSOP-EP1M32 (ZIF, “Pin 9 to 1”) adapter**  
-  Tool-free flashing with a Zero Insertion Force socket — no soldering required.
+  Tool-free flashing with a Zero Insertion Force socket. No soldering required.
 
-These adapters allow convenient programming of SST39VF040 EEPROMs used with the PSX BIOS replacement adapters.
-Or use any other programmer capable of writing to this IC in their respective package.
+These adapters allow for straightforward flashing of SST39VF040 EEPROMs used with PSX Flash BIOS PCBs.  
+Other programmers compatible with this IC and its footprint may be used as well.  
 
-<img src="img/t48-tsop32.jpg" alt="CNV-TSOP-EP1M32" width="300">
+<img src="img/t48-tsop32.jpg" alt="CNV-TSOP-EP1M32" width="550">
 
 > [!NOTE]
-> No byte-swap is required, as PS1 BIOS images are natively stored in little-endian format.
+> When flashing the EEPROM, no byte-swap is needed, as PS1 BIOS dumps use little-endian encoding as their native format.  
+
+---
+
+## PSX Flash BIOS Layouts
+
+Ready-to-manufacture Gerber files for two adapter versions are included in this repository and can be downloaded from the [Releases](https://github.com/Electroanalog/PSX-Flash-BIOS/releases) section:
+
+- [**40-pin version**](https://github.com/Electroanalog/PSX-Flash-BIOS/releases/download/v1.0/Gerber_PSX-BIOS_40PIN.zip): For early revisions such as **PU-7** and **PU-8 (early)** with a 40-pin BIOS Mask ROM  
+- [**32-pin version**](https://github.com/Electroanalog/PSX-Flash-BIOS/releases/download/v1.0/Gerber_PSX-BIOS_32PIN.zip): For mainboards from **PU-8 (late)** onward that use a 32-pin BIOS Mask ROM  
+
+> [!NOTE]
+> Adapters are designed for flex or thin PCBs (≤ 0.8 mm) to ensure low-profile installation without mechanical interference.  
+
+---
+
+## Installation Notes
+
+- **Flex PCB** is recommended to ensure low-profile installation, proper fit and clearance on the PS1 mainboard.
+- When using FR-4 PCBs, **castellated holes** may be required for edge-aligned soldering to the mainboard, which can increase manufacturing cost. In contrast, **flex PCBs with ENIG finish** are thinner, mechanically compliant, and typically more affordable for low-profile installations, eliminating the need for castellations while simplifying assembly.
+- The original **SOP32 or SOP40 Mask ROM (IC102) must be desoldered from the PS1 mainboard using a hot air rework station**. This tool is essential for safe removal without damaging PCB pads or nearby components.  
+- Place the EEPROM with correct orientation, matching the silkscreen markings on the **PSX Flash BIOS 40** or **PSX Flash BIOS 32** adapter. Carefully ensure that **all pins are precisely aligned with the PCB pads** before soldering.  
+- Fine pitch soldering skills are essential.
+- A **PCB inspection scope** is highly recommended to objectively verify solder quality on each IC pin, especially for fine-pitch packages like TSOP32.
+- A **10 kΩ 0402 resistor** is used to pull the **WE** (Write Enable) pin high, putting the EEPROM in read-only mode. If preferred, a solder bridge can be used in place of the resistor.  
+- Adapter boards have been tested and verified on real hardware, including SCPH-1000, SCPH-1001, and SCPH-7501 consoles.
 
 ---
 
 ## Gallery
+*PSX Flash BIOS 40 and 32 built in Flex PCB*  
+<img src="img/32-40pin.png" alt="PSX Flash BIOS 40/32 PCB" width="800">  
 
-<img src="img/32-40pin.png" alt="PSX Flash BIOS 40/32 PCB" width="800">
-<img src="img/fb40-pu8.jpg" alt="PU-8" width="800">
+*PSX Flash BIOS 40 installed on a fully MLCC-recapped PU-8 mainboard from an SCPH-1001 console*  
+<img src="img/fb40-pu8.jpg" alt="PU-8" width="800">  
+
+*PSX Flash BIOS 32 installed on a PU-22 mainboard from a SCPH-7501 console*  
 <img src="img/fb32-pu22.jpg" alt="PU-22" width="800">  
+
+*PSX Flash BIOS working with PSxMemCard Gen2 on an SCPH-7501 console*  
+<img src="img/gameid.jpg" alt="PSxMemCard Gen2" width="800">  
 
 ---
 
@@ -118,8 +129,10 @@ For full license text, see the [LICENSE](LICENSE) file or visit the [CERN-OHL-S 
 
 ## Credits
 
-Created by **Electroanalog (2025)**  
-Built to complement the [*PS1 Disc-Based Game ID*](https://github.com/jdfr228) BIOS patches by **James Dylan French (jdfr228)**
+Created by **Electroanalog® VICE (2025)**  
+Built to complement the [*PS1 Disc-Based Game ID*](https://github.com/jdfr228/PS1-Disc-Based-Game-ID) BIOS patches by **James Dylan French (jdfr228)**  
+
+*PlayStation is a registered trademark of Sony Interactive Entertainment LLC (SIE), formerly Sony Computer Entertainment Inc. (SCE). All rights reserved.*  
 
 ---
 
