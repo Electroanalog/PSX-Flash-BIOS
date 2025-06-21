@@ -120,7 +120,7 @@ For full license text, see the [LICENSE](LICENSE) file or visit the [CERN-OHL-S 
 ## Credits
 
 Created by **Electroanalog (2025)**  
-Built to complement the [*PS1 Disc-Based Game ID*](https://github.com/jdfr228) BIOS patches by **James Dylan French (jdfr228)**
+Built to complement the [*PS1 Disc-Based Game ID*](https://github.com/jdfr228/PS1-Disc-Based-Game-ID) BIOS patches by **James Dylan French (jdfr228)**
 
 ---
 
