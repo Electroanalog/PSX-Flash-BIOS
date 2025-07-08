@@ -1,3 +1,9 @@
+<a name="top"></a>
+
+<a href="https://www.electroanalog.com">
+  <img src="https://electroanalog.github.io/img/electroanalog_logo.png" alt="Electroanalog" width="270px" />
+</a>
+
 # PSX Flash BIOS 40 / 32
 
 [![License: CERN-OHL-S-2.0](https://img.shields.io/badge/License-CERN--OHL--S--2.0-lightgrey.svg)](LICENSE)
