@@ -1,3 +1,9 @@
+<a name="top"></a>
+
+<a href="https://www.electroanalog.com">
+  <img src="https://electroanalog.github.io/img/electroanalog_logo.png" alt="Electroanalog" width="270px" />
+</a>
+
 # PSX Flash BIOS 40 / 32
 
 [![License: CERN-OHL-S-2.0](https://img.shields.io/badge/License-CERN--OHL--S--2.0-lightgrey.svg)](LICENSE)
@@ -24,6 +30,9 @@
 ## Overview
 
 This project was created to address the lack of 40-pin BIOS adapters in the community, offering a reliable solution for early PS1 consoles (e.g., SCPH-100X series from 1994–1995) that were previously unsupported.  
+
+Due to specific wiring on early 40-pin mainboards such as PU-7 and PU-8, it became possible to use the same SST39VF040 flash chip for both the 32-pin and 40-pin BIOS configurations. On these 40-pin boards, data lines D0 through D14 are physically present, and pin 29 (A0/D15) is tied to A0 because pin 31 (/BYTE) is held low-forcing 8-bit mode. This wiring ensures that only pins D0-D7 and A0-A18 are functionally valid, just like on 32-pin layouts. The result is full compatibility using a single chip without needing additional logic or memory configuration changes.
+
 All adapter designs prioritize ultra-thin profiles using flex PCBs to ensure seamless, low-clearance installation directly on the mainboard.
 ![PSX Flash BIOS 40 and 32](img/psx_fb40-32.png)
 Installing a BIOS patched with Game ID support offers significant advantages when used with accessories such as **MemCard Pro**, **SD2PSX**, **BlueRetro**, **PS1Digital**, and **Retro GEM**. With Game ID enabled, these devices can automatically detect the running game and perform actions like:
@@ -85,6 +94,32 @@ Ready-to-manufacture Gerber files for two adapter versions are included in this 
 - [**40-pin version**](https://github.com/Electroanalog/PSX-Flash-BIOS/releases/download/v1.0/Gerber_PSX-BIOS_40PIN.zip): For early revisions such as **PU-7** and **PU-8 (early)** with a 40-pin BIOS Mask ROM  
 - [**32-pin version**](https://github.com/Electroanalog/PSX-Flash-BIOS/releases/download/v1.0/Gerber_PSX-BIOS_32PIN.zip): For mainboards from **PU-8 (late)** onward that use a 32-pin BIOS Mask ROM  
 
+<details>
+<summary> <b>Schematics and PCBs - Click to expand</b> </summary>
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://image-pro.easyeda.com/pullimages/ce6c99dd931d434a84ca130b05cbbed5.webp" alt="PSX Flash BIOS 40 Schematic" width="380" /><br/>
+      <sub><strong>PSX Flash BIOS 40</strong><br/>Schematic</sub>
+    </td>
+    <td align="center">
+      <img src="https://image-pro.easyeda.com/pullimages/72cd3f926925481eb86e57a4d1990f67.webp" alt="PSX Flash BIOS 32 Schematic" width="380" /><br/>
+      <sub><strong>PSX Flash BIOS 32</strong><br/>Schematic</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://image-pro.easyeda.com/pullimages/fe901e0592b7430ab6be7abaea2f270d.webp" alt="PSX Flash BIOS 40 PCB" width="380" /><br/>
+      <sub><strong>PSX Flash BIOS 40</strong><br/>PCB Layout</sub>
+    </td>
+    <td align="center">
+      <img src="https://image-pro.easyeda.com/pullimages/0c81ecc13e00440b9dfae1d732bd815f.webp" alt="PSX Flash BIOS 32 PCB" width="380" /><br/>
+      <sub><strong>PSX Flash BIOS 32</strong><br/>PCB Layout</sub>
+    </td>
+  </tr>
+</table>
+</details>
+
 > [!NOTE]
 > Adapters are designed for flex or thin PCBs (≤ 0.8 mm) to ensure low-profile installation without mechanical interference.  
 
@@ -115,6 +150,16 @@ Ready-to-manufacture Gerber files for two adapter versions are included in this 
 
 *PSX Flash BIOS working with PSxMemCard Gen2 on an SCPH-7501 console*  
 <img src="img/gameid.jpg" alt="PSxMemCard Gen2" width="800">  
+
+---
+
+## PSX Flash BIOS is also available on OSHWLab
+
+<p align="center">
+  <a href="https://oshwlab.com/electroanalog/psx-flash-bios">
+    <img src="https://www.electroanalog.com/img/thumbnail_OSHWLab-logo.png" alt="OSHWLab" width="150" />
+  </a>
+</p>
 
 ---
 
