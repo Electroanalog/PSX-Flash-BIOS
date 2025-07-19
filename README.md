@@ -99,7 +99,7 @@ Ready-to-manufacture Gerber files for two adapter versions are included in this 
 <table>
   <tr>
     <td align="center">
-      <img src="https://image-pro.easyeda.com/pullimages/ce6c99dd931d434a84ca130b05cbbed5.webp" alt="PSX Flash BIOS 40 Schematic" width="380" /><br/>
+      <img src="https://image-pro.easyeda.com/pullimages/29407c24c6374bab932015ff0a3c978b.webp" alt="PSX Flash BIOS 40 Schematic" width="380" /><br/>
       <sub><strong>PSX Flash BIOS 40</strong><br/>Schematic</sub>
     </td>
     <td align="center">
@@ -113,7 +113,7 @@ Ready-to-manufacture Gerber files for two adapter versions are included in this 
       <sub><strong>PSX Flash BIOS 40</strong><br/>PCB Layout</sub>
     </td>
     <td align="center">
-      <img src="https://image-pro.easyeda.com/pullimages/0c81ecc13e00440b9dfae1d732bd815f.webp" alt="PSX Flash BIOS 32 PCB" width="380" /><br/>
+      <img src="https://image-pro.easyeda.com/pullimages/fb467640770042b3aee27c030e41379f.webp" alt="PSX Flash BIOS 32 PCB" width="380" /><br/>
       <sub><strong>PSX Flash BIOS 32</strong><br/>PCB Layout</sub>
     </td>
   </tr>
