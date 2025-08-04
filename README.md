@@ -125,6 +125,40 @@ Ready-to-manufacture Gerber files for two adapter versions are included in this 
 
 ---
 
+## PCB Manufacturing Recommendation
+
+For prototyping and production of the **PSX Flash BIOS 40 / 32** adapters, we recommend **JLCPCB** as the primary manufacturing partner.  
+Their consistent quality, competitive pricing, and fast turnaround make them an ideal choice for hobbyists and professionals alike.
+
+<p align="center">
+  <a href="https://jlcpcb.com">
+    <img src="https://www.electroanalog.com/img/jlcpcb_V2-.png" alt="JLCPCB" width="300" />
+  </a>
+</p>
+
+Founded in 2006, **JLCPCB** is one of the world’s leading PCB and PCBA manufacturers, serving over 6 million customers across 180+ countries.  
+Their fully automated production lines and digital ordering platform enable rapid delivery of high-reliability boards at low cost, ideal for prototyping and small-batch runs.
+
+> [!NOTE]
+> The PSX Flash BIOS adapters were prototyped and validated using Flex PCBs manufactured by JLCPCB.
+
+### Recommended Specs
+
+- **PCB Type:** Flex PCB  
+- **Surface Finish:** ENIG (Default finish)  
+- **PCB Thickness:** Standard: 0.11 mm (*Optional* 0.2 mm for improved rigidity)  
+- **Coverlay Color:** Standard: Yellow (*Optional* Black or White)  
+- **Layers:** 2  
+- **Minimum Trace/Spacing:** Standard  
+
+> [!IMPORTANT]
+> Optional thickness and coverlay color increase production cost. Standard specs are fully compatible with this project.
+
+JLCPCB frequently offers **discount coupons** and promotional pricing, making it a cost-effective option even for small quantities.  
+Manufacturing and shipping times are impressively fast, with most orders processed and dispatched within a few business days.
+
+---
+
 ## Installation Notes
 
 - **Flex PCB** is recommended to ensure low-profile installation, proper fit and clearance on the PS1 mainboard.
